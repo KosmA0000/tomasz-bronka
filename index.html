@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakład kamieniarski Tomasz Bronka — nagrobki, Kalisz</title>
+<meta name="description" content="Zakład kamieniarski Tomasz Bronka — nagrobki pojedyncze, podwójne, dziecięce, sarkofagi, liternictwo, galanteria. Kalisz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================================
+   ŹRÓDŁA RUCHU — wszystko zmierzone Playwrightem, pomiary: _biblioteka/wzorzec-ruchu.md
+
+   numa.uprock.pro
+     · przejście otwierające: maska 1395×869 → 340×225, zaokrąglenie 35 → 985 px,
+       treść gaśnie (1 → 0) ZANIM kadr zacznie się kurczyć,
+     · ruch kamery: 13 kart 340×225 w trzech pasach (y 97 / 337 / 578),
+       pasy 1 i 3 jadą −1785 → +1771 px, pas 2 w przeciwną stronę +1434 → −1412 px,
+     · tekst w maskach: overflow:hidden o wysokości jednego wiersza,
+     · scena = sekcja 3–4,5 ekranu + kamera position:sticky/top:0/height:100svh,
+     · sceny zachodzą na siebie (cover 0–2700, route 1035–4635).
+
+   era-residence.com (odczytane z ScrollTrigger.getAll(), 194 triggery)
+     · najazd kamery w hero: scale 1 → 2, ease In, zakres 4,8 ekranu, scrub,
+       równolegle tło y → −383, treść y → −703,
+     · przejazd poziomy: track x → −3132, scrub 0.25,
+     · wiersze tytułu rozjeżdżają się: xPercent w przeciwne strony,
+     · przejście „przez drzwi": clipPath rozsuwa połówki + scale 1 → 1,84, ease InOut,
+     · paralaksa warstw: yPercent 15 (tła) i 20 (cytat), ease none, scrub 0.5,
+     · stopka: clipPath inset(8% 22% 8% 22%) + opacity/scale → 1, scrub 0.5.
+
+   param.design/abdulkalam
+     · pasek górny position:relative, przezroczysty, bez zmian przy przewijaniu,
+     · linki: transition .4s, padding 24px 35px, letter-spacing 1px, bez tła i zaokrągleń.
+   =========================================================================== */
+:root{
+  --bg:#EFEDE8;
+  --bg-dark:#12110F;
+  --tx:#261A0A;
+  --tx-dim:#8A8178;
+  --line:rgba(38,26,10,.16);
+  --sans:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --odciecie:100%;
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--sans);font-weight:300;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1280px,90vw);margin-inline:auto}
+
+/* ——— PASEK GÓRNY wg numa.uprock.pro (zmierzone na żywo) ———
+   header: position:fixed, wys. 77 px, padding 37 px, tło przezroczyste, z-index 90,
+   chowa się przy przewijaniu w dół i wraca przy przewijaniu w górę
+   (transition: opacity .3s, transform .4s);
+   pigułka „Menu" po lewej: 94x39, promień 21,35 px, tło rgba(255,255,255,.1);
+   po prawej pigułka z telefonem: wys. 40, padding 10,6/15,97, odstęp 12,75;
+   tło pigułek zmienia się z jasnością sekcji: na jasnym rgba(0,0,0,.4). */
+header.bar{position:fixed;top:0;left:0;right:0;height:77px;padding:37px 37px 0;z-index:90;
+  background:transparent;transition:opacity .3s,transform .4s;pointer-events:none}
+header.bar.schowany{transform:translateY(-100%);opacity:0}
+.bar-in{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;
+  max-width:1446px;margin-inline:auto}
+.bar-in > *{pointer-events:auto}
+.pigulka{display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.10);color:#FFFEFC;font-size:15px;font-weight:600;
+  padding:10.6px 15.97px;border-radius:21.35px;cursor:pointer;
+  transition:background .4s,color .4s;white-space:nowrap}
+body.jasne-tlo .pigulka{background:rgba(0,0,0,.40)}
+.menu-blok{display:flex;flex-direction:column;align-items:flex-start}
+.menu-poz{display:flex;flex-direction:column;gap:15.97px;padding:10.6px 15.97px 15.97px;
+  overflow:hidden;height:0;opacity:0;transition:height .45s ease,opacity .3s}
+.menu-blok.otwarte .menu-poz{height:auto;opacity:1}
+.menu-poz a{font-size:15px;font-weight:600;color:#FFFEFC;transition:opacity .3s}
+body.jasne-tlo .menu-poz a{color:#261A0A}
+.menu-poz a:hover{opacity:.6}
+.logo-srodek{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:#FFFEFC;padding-top:10.6px;transition:color .4s}
+body.jasne-tlo .logo-srodek{color:#261A0A}
+.pigulka--tel{gap:12.75px}
+.pigulka--tel i{width:14px;height:14px;border-radius:50%;background:currentColor;display:block;
+  flex:0 0 14px}
+@media(max-width:820px){
+  header.bar{padding:18px 18px 0;height:60px}
+  .logo-srodek{display:none}
+}
+
+/* SCENA — kamera przyklejona (numa) */
+.scena{position:relative}
+.kamera{position:sticky;top:0;height:100svh;overflow:hidden}
+.srodek{display:grid;place-content:center}
+.pad{width:min(1280px,90vw);margin-inline:auto}
+
+/* tekst w maskach (numa): maska ma wysokość wiersza, wiersz wjeżdża od dołu */
+.maska{display:block;overflow:hidden}
+.maska > span{display:block;transform:translateY(106%);will-change:transform}
+.hero-t .maska > span{transform:translateY(0%)}
+.maska--zmiana{position:relative}
+.maska--zmiana .w1{display:block;transform:translateY(0%)}
+.maska--zmiana .w2{position:absolute;left:0;top:0;width:100%;transform:translateY(106%)}
+
+.hero-t{font-weight:600;margin:0;font-size:clamp(2.6rem,9vw,7.4rem);line-height:1.12;/* maska ma wysokosc wiersza, wiec wiersz musi zmiescic ogonki (y, j, ą) — przy .98 ucinalo 8 px */
+  letter-spacing:-.03em;text-transform:uppercase}
+.hero-sub{margin-top:1.4rem;max-width:40ch;font-size:1rem;opacity:.9;
+  /* maska ma wysokosc tekstu, wiec ogonki (j, ę, ą) w ostatnim wierszu moga o nia zahaczac;
+     3 px zapasu mniej niz 6% wysokosci, wiec ukryty stan (translateY 106%) dalej nie wystaje */
+  padding-bottom:3px}
+.meta{display:flex;justify-content:space-between;gap:2rem;font-size:.7rem;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:1.4rem;opacity:.85}
+.big{font-weight:600;font-size:clamp(1.7rem,5vw,4rem);line-height:1.15;letter-spacing:-.025em;max-width:17ch;margin:0}
+.eyebrow{font-size:.68rem;letter-spacing:1px;text-transform:uppercase;color:var(--tx-dim);
+  display:block;margin-bottom:1.4rem}
+
+/* ——— SCENA 1: kadr otwierający, który kurczy się do karty (numa cover) ——— */
+#otwarcie .kamera{display:grid;place-items:center;background:var(--bg)}
+.kadr{position:relative;overflow:hidden;border-radius:35px;background:var(--bg-dark);
+  width:96.9vw;height:96.6svh;will-change:width,height,border-radius}
+.kadr > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.kadr::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,
+  rgba(10,9,8,.42) 0%,rgba(10,9,8,.10) 42%,rgba(10,9,8,.74) 100%)}
+.kadr-tresc{position:absolute;left:0;right:0;bottom:0;z-index:3;color:#F4F1EA;
+  padding:clamp(1.4rem,3.4vw,3rem) 0 clamp(2rem,4vw,3.4rem);will-change:opacity,transform}
+
+/* ——— SCENA 2: ściana kadrów sunąca w poziomie (numa route) ——— */
+/* tło przezroczyste: karta z przejścia otwierającego musi być widoczna,
+   gdy pas kart przejeżdża przez jej pozycję (numa: karta 338x225 @top 338,
+   karty pasa 340x225 @top 337 - ten sam rozmiar i ten sam pas) */
+#sciana .kamera{background:transparent}
+/* trzy pasy dokładnie tam, gdzie ma je numa: karta 225 px wysokości, odstęp 15 px,
+   pas środkowy w osi ekranu — czyli 97,5 / 337,5 / 577,5 px przy oknie 900 px.
+   Pas środkowy stoi w tym samym pasie co kadr, do którego kurczy się otwarcie. */
+.pas{position:absolute;left:0;display:flex;gap:15px;will-change:transform}
+.pas:nth-of-type(1){top:calc(50% - 352.5px)}
+.pas:nth-of-type(2){top:calc(50% - 112.5px)}
+.pas:nth-of-type(3){top:calc(50% + 127.5px)}
+.karta-foto{position:relative;flex:0 0 180px;width:180px;height:240px;overflow:hidden;
+  border-radius:12px;background:var(--bg-dark)}
+.karta-foto img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.karta-foto span{position:absolute;left:12px;bottom:10px;z-index:2;color:#F4F1EA;
+  font-size:.62rem;letter-spacing:1px;text-transform:uppercase;opacity:.9}
+.karta-foto::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,9,8,0) 55%,rgba(10,9,8,.6) 100%)}
+.sciana-tytul{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:4;
+  text-align:center;pointer-events:none;opacity:0;will-change:transform,opacity}
+.sciana-tytul .tresc{display:inline-block;transform-origin:50% 50%}
+.sciana-tytul b{display:block;font-weight:600;font-size:clamp(1.6rem,5vw,4rem);letter-spacing:-.03em;
+  text-transform:uppercase;line-height:1;
+  /* Cięcie barwy liter: procent liczony we WŁASNYM pudełku napisu i ustawiany z JS.
+     „fixed" tu nie działa — napis siedzi w elemencie skalowanym do 2,35, a transform
+     tworzy nowy układ odniesienia dla tła, więc cięcie rozjeżdżało się z krawędzią zdjęcia. */
+  background:linear-gradient(to right, #261A0A var(--ciecie,100%), #F4F1EA var(--ciecie,100%));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+/* druga linia dopisuje sie slowo po slowie w rytmie przewijania — kazde slowo
+   w masce o wysokosci wiersza (numa .metrics__description__mask) */
+.sciana-tytul i{display:flex;justify-content:center;flex-wrap:wrap;gap:0 .4em;font-style:normal;
+  font-weight:500;font-size:clamp(.85rem,1.7vw,1.5rem);letter-spacing:.01em;text-transform:uppercase;
+  margin-top:.5em;
+  /* Cięcie barwy liter: procent liczony we WŁASNYM pudełku napisu i ustawiany z JS.
+     „fixed" tu nie działa — napis siedzi w elemencie skalowanym do 2,35, a transform
+     tworzy nowy układ odniesienia dla tła, więc cięcie rozjeżdżało się z krawędzią zdjęcia. */
+  background:linear-gradient(to right, #261A0A var(--ciecie,100%), #F4F1EA var(--ciecie,100%));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sciana-tytul i .m{overflow:hidden;display:block}
+.sciana-tytul i .m > span{display:block;transform:translateY(106%);will-change:transform}
+
+/* ——— SCENA 3: najazd kamery (era hero) ——— */
+#najazd .kamera{background:transparent}
+.tlo{position:absolute;inset:0;overflow:hidden;background:var(--bg-dark);will-change:transform}
+.tlo img{width:100%;height:100%;object-fit:cover;will-change:transform;transform-origin:50% 60%}
+#fotoNajazd{transform:scale(2.6);transform-origin:50% 52%}
+.tlo::after{content:"";position:absolute;inset:0;background:rgba(10,9,8,.42)}
+.napis{position:absolute;inset:0;z-index:3;display:grid;place-content:center;color:#F4F1EA;
+  text-align:center;width:100%;opacity:0}
+.wiersz{display:block;font-weight:600;font-size:clamp(2rem,7.4vw,6rem);line-height:1.02;
+  letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap;will-change:transform}
+
+/* ——— SCENA 4: oferta — jedna kamera, treść wymieniana w punktach wyzwalania (numa).
+   Układ wyśrodkowany; wiersze wjeżdżają z masek o wysokości wiersza
+   (numa .metrics__description__mask). */
+#oferta .kamera{background:var(--bg);display:grid;place-content:center}
+.karta{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none}
+.karta.on{pointer-events:auto}
+.karta-in{width:min(1120px,90vw);margin-inline:auto;text-align:center}
+.karta .lab{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--tx-dim);
+  display:block;margin-bottom:1.5rem}
+.karta .tyt{font-weight:600;font-size:clamp(2.1rem,5.6vw,4.6rem);letter-spacing:-.025em;
+  line-height:1.15;margin:0 0 1.7rem}   /* 1.04 ucinalo ogonki naglowkow oferty o 3,7 px */
+.karta .opis{font-size:clamp(1.05rem,1.55vw,1.4rem);line-height:1.6;color:var(--tx-dim);
+  margin:0 auto;max-width:52ch}
+.lista-label{display:flex;align-items:center;gap:1rem;max-width:64ch;margin:2rem auto .55rem;
+  color:var(--tx-dim);font-size:.7rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;text-align:center}
+.lista-label::before,.lista-label::after{content:"";height:1px;flex:1;background:var(--line)}
+.lista-przycisk{display:none}
+.karta-listy{margin:0 auto;padding:0;list-style:none;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(var(--rows),auto);
+  grid-auto-flow:column;column-gap:3.5rem;max-width:64ch;text-align:center}
+.poz{overflow:hidden;border-bottom:1px solid var(--line);padding:.26rem .15rem;
+  color:var(--tx-dim);font-size:clamp(1rem,1.25vw,1.18rem);line-height:1.6}
+.poz > span{display:block;transform:translateY(106%);will-change:transform}
+.poz > span::before{content:"—";display:inline-block;width:1.4em;opacity:.45}
+@media(max-width:760px){.karta-listy{grid-template-columns:1fr;grid-template-rows:none;
+  grid-auto-flow:row;max-width:40ch}}
+@media(min-width:761px) and (max-height:800px){
+  #oferta .karta .tyt{margin-bottom:1rem}
+  .lista-label{margin-top:1rem}
+  .poz{padding:.1rem .15rem}
+}
+
+/* wskaźnik sceny wg numa: numbers__dots-wrapper 29px + numbers__dot-center 15px */
+.postep{position:absolute;left:50%;transform:translateX(-50%);bottom:5vh;display:flex;gap:.55rem;z-index:5}
+.postep i{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(38,26,10,.08);transition:background .45s}
+.postep i::after{content:"";width:15px;height:15px;border-radius:50%;
+  background:rgba(38,26,10,.18);transition:background .45s}
+.postep i.on::after{background:var(--tx)}
+
+/* ——— SCENA 5: przejście przez rozsuwany kadr (era arch-intro) ——— */
+#drzwi .kamera{background:var(--bg)}
+.za-drzwiami{position:absolute;inset:0;display:grid;place-content:center;
+  background:var(--bg);will-change:transform;z-index:1}
+.drzwi-scena{position:absolute;inset:0;will-change:transform;z-index:2}
+.polowa{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;will-change:clip-path}
+.polowa.l{left:0}
+.polowa.r{right:0}
+.polowa img{position:absolute;top:0;width:200%;height:100%;object-fit:cover;max-width:none;
+  transform:scale(2.6);transform-origin:center center}
+.polowa.l img{left:0}
+.polowa.r img{right:0}
+
+/* ——— kontakt i stopka (era: clipPath inset + opacity/scale) ——— */
+.kon{padding:clamp(4rem,9vw,7rem) 0;border-top:1px solid var(--line);overflow:hidden;will-change:clip-path}
+.kon-row{display:flex;gap:clamp(1rem,3vw,2rem);flex-wrap:wrap;margin-top:2rem}
+.kon-adres{font-style:normal;margin-top:1.8rem;line-height:1.7;color:var(--tx-dim);
+  font-size:clamp(1rem,1.35vw,1.2rem)}
+.kon-firma{display:block;color:var(--tx);font-weight:600}
+.kon-godziny{display:block;margin-top:.6rem;font-size:.92em}
+.kon-in{will-change:transform,opacity}
+footer{padding:2.2rem 0;border-top:1px solid var(--line);font-size:.66rem;letter-spacing:1px;
+  text-transform:uppercase;color:var(--tx-dim);text-align:center}
+
+/* ——— GALERIA (mobile) — poziomy pas ze snapem, strzałki po jednym zdjęciu ——— */
+#galeria{display:block;padding:clamp(4rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem)}
+.gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.2rem;margin-bottom:1.5rem}
+.gal-tyt{font-weight:600;font-size:clamp(1.5rem,6.4vw,2.2rem);line-height:1.15;
+  letter-spacing:-.02em;margin:0;max-width:15ch}
+.gal-strzalki{display:flex;gap:.5rem;flex:0 0 auto}
+.gal-strzalki button{width:2.75rem;height:2.75rem;border-radius:50%;border:1px solid var(--line);
+  background:transparent;color:var(--tx);font-size:1.35rem;line-height:1;cursor:pointer;
+  display:grid;place-items:center;transition:background .3s,color .3s,opacity .3s}
+.gal-strzalki button:disabled{opacity:.25;cursor:default}
+.gal{display:flex;gap:19.2px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;
+  padding-inline:5vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{margin:0;flex:0 0 78vw;scroll-snap-align:center;border-radius:18px;overflow:hidden;
+  aspect-ratio:4/3;background:var(--bg-dark)}
+.gal figure img{width:100%;height:100%;object-fit:cover;display:block}
+/* Na dużym ekranie galeria w klasycznym stylu — pomiar z walbrzych-tapicer-premium:
+   kafle w jednym rzędzie, odstęp 19,2 px, bez zaokrągleń, zdjęcie mieści się w całości.
+   Kafel 285×380 to dokładnie 3:4 materiału firmy (768×1024), więc `contain` nic nie obcina
+   i nie zostawia czarnych pasów. Na telefonie zostaje układ z New York (78vw). */
+@media (min-width:761px){
+  /* pas zaczyna się tam, gdzie nagłówek (ten sam margines co .wrap) */
+  .gal{padding-inline:max(5%,calc((100% - min(1280px,90%))/2));scroll-padding-left:max(5%,calc((100% - min(1280px,90%))/2))}
+  .gal figure{flex:0 0 285px;height:380px;aspect-ratio:auto;border-radius:0;scroll-snap-align:start}
+  .gal figure img{object-fit:contain}
+  .gal-tyt{font-size:clamp(1.8rem,4.4vw,3.2rem);max-width:22ch}
+  .gal-strzalki button{width:3rem;height:3rem;font-size:1.4rem}
+  .gal-head{margin-bottom:2.2rem}
+}
+.gal-linia{height:2px;background:var(--line);position:relative;overflow:hidden;
+  margin-top:1.3rem;border-radius:2px}
+.gal-linia i{position:absolute;left:0;top:0;height:100%;background:var(--tx);border-radius:2px;
+  transition:left .2s linear}
+.tylko-male{display:none}
+.menu-tel{display:none}
+
+/* ——— WERSJA MOBILNA — wzorowana na numie przy 390 px ———
+   Numa na telefonie wyłącza kino przewijania: .cover ma display:none, kart sceny route
+   nie widać w ogóle (zmierzone: 0 kart na całym przewijaniu), a sekcje stoją zwyczajnie
+   jedna pod drugą. Tak samo tutaj: kamery przestają być lepkie, sceny mają własną wysokość,
+   ściana realizacji znika, a jej rolę przejmuje galeria tuż przed kontaktem. */
+@media(max-width:760px){
+  .scena{height:auto!important;margin-top:0!important;z-index:auto!important}
+  .kamera{position:static;height:auto;overflow:visible}
+  #galeria{display:block}
+  .gal{gap:.75rem}
+
+  /* Ściana realizacji nie jedzie na telefonie (jej rolę przejmuje galeria przed kontaktem),
+     ale napis „Realizacje dobrane do Twojego wnętrza" zostaje w swoim miejscu przepływu. */
+  #sciana{display:block}
+  #sciana .kamera{padding:4.5rem 0 1rem;background:var(--bg)}
+  #sciana .pas{display:none}
+  .sciana-tytul{position:relative;top:auto;transform:none!important;opacity:1!important;
+    padding:0 12px;z-index:1}
+  .sciana-tytul .tresc{transform:none!important;display:block}
+  .sciana-tytul b{font-size:clamp(2rem,10vw,3rem)}
+  .sciana-tytul i{font-size:clamp(.9rem,4.2vw,1.2rem);margin-top:.7em}
+  .sciana-tytul i .m > span{transform:none!important}
+
+  /* ——— MENU jak na numie: pełnoekranowy panel, pigułka „Zamknij", telefon na dole ———
+     pomiar numy: pozycje 39 px co 71 px (odstęp 25), panel biały, wsunięty 8 px, rogi 24 px */
+  .menu-poz{transition:none}
+  .menu-blok.otwarte .menu-poz{position:fixed;inset:8px;height:auto;opacity:1;overflow:auto;
+    background:#261A0A;border:1px solid rgba(255,255,255,.16);border-radius:24px;
+    box-shadow:0 18px 60px rgba(38,26,10,.26);padding:104px 28px 28px;z-index:95;
+    display:flex;flex-direction:column;align-items:flex-start;gap:25px}
+  .menu-blok.otwarte .menu-poz a{font-size:clamp(28px,10vw,39px);line-height:1.18;
+    font-weight:600;color:#FFFEFC}
+  .menu-blok.otwarte #menuPrzycisk{position:fixed;left:20px;top:20px;z-index:96;
+    background:rgba(255,255,255,.14);color:#FFFEFC}
+  .menu-tel{margin-top:auto;width:100%;justify-content:center;text-align:center;
+    background:var(--tx);color:var(--bg)!important;padding:16px;border-radius:32px;
+    font-size:17px!important;font-weight:600}
+  .menu-blok.otwarte .menu-tel{background:#FFFEFC;color:var(--tx)!important}
+  body.menu-otwarte{overflow:hidden}
+  .tylko-duze{display:none}
+  .tylko-male{display:block}
+  .menu-tel{display:flex}
+  .maska > span{transform:none!important}
+  .poz > span{transform:none!important}
+
+  /* pasek zawsze widoczny razem z telefonem — bez chowania przy przewijaniu */
+  header.bar{height:auto;padding:12px 12px 0}
+  header.bar.schowany{transform:none;opacity:1}
+  .pigulka{font-size:14px;padding:9px 14px}
+  .pigulka--tel{gap:9px}
+  .pigulka--tel i{width:11px;height:11px;flex:0 0 11px}
+
+  /* hero: całe zdjęcie w zaokrąglonej ramce z marginesem (numa), treść przy dolnej krawędzi;
+     kadr wyśrodkowany, żeby na wąskim ekranie widać było środek zdjęcia, nie jego brzeg */
+  /* kamera przestaje centrowac zawartosc, inaczej kadr kurczy sie do zera
+     (obraz jest pozycjonowany absolutnie, wiec grid nie ma czego zmierzyc) */
+  #otwarcie .kamera{place-items:stretch}
+  .kadr{width:auto!important;height:calc(100svh - 16px)!important;margin:8px;
+    border-radius:24px!important}
+  .kadr > img{object-position:50% 50%}
+  .kadr-tresc{padding-bottom:1.6rem}
+  .hero-t{font-size:clamp(2.1rem,10vw,3.4rem)}
+  .hero-sub{font-size:.95rem;margin-top:1rem}
+  .meta{font-size:.62rem;margin-bottom:1rem}
+  /* Bez przewijania nie ma wymiany wiersza, wiec oba warianty stoja jeden pod drugim:
+     MEBLE / NEW YORK / NA WYMIAR — nazwa firmy zostaje w hero. */
+  .maska--zmiana{overflow:visible}
+  .maska--zmiana .w1{display:block;position:static;transform:none!important}
+  .maska--zmiana .w2{display:block;position:static;transform:none!important}
+
+  /* scena montażu: zwykły blok ze zdjęciem i napisem */
+  #najazd .kamera{padding:0}
+  #najazd .tlo{position:relative;inset:auto;height:62svh;clip-path:none!important;
+    transform:none!important;margin:0 8px;border-radius:24px;overflow:hidden}
+  .napis{position:absolute;inset:0;opacity:1!important}
+  .wiersz{transform:none!important;font-size:clamp(1.8rem,9vw,3rem)}
+
+  /* ——— OFERTA JAKO KAFLE (numa: na telefonie treść siedzi w zaokrąglonych kaflach,
+     jeden pod drugim, wyrównana do lewej — zamiast wyśrodkowanych pełnoekranowych scen) ——— */
+  /* karty siedza w #karty, a nie wprost w kamerze — odstep musi isc na ten wlasnie kontener,
+     inaczej kafle stykaja sie bokami i zlewaja w jedna plame */
+  #oferta .kamera{display:block;padding:1.5rem 12px 2.5rem}
+  #karty{display:flex;flex-direction:column;gap:20px}
+  .karta{position:relative;opacity:1!important;inset:auto;padding:0;display:block;pointer-events:auto}
+  /* kafle maja sie od siebie odcinac: wiekszy odstep, wlosowa ramka i delikatny cien,
+     bo samo bialo na kremowym tle zlewalo sie w jedna plame */
+  .karta-in{width:auto;margin:0;text-align:left;background:#FFFEFC;border-radius:24px;
+    padding:1.6rem 1.35rem;border:1px solid var(--line);
+    box-shadow:0 1px 2px rgba(38,26,10,.04)}
+  .karta .lab{margin-bottom:.9rem}
+  .karta .tyt{font-size:clamp(1.5rem,7vw,2.1rem);margin:0 0 .8rem}
+  .karta .opis{font-size:1rem;margin:0;max-width:none}
+  .lista-label{display:none}
+  .lista-przycisk{display:flex;align-items:center;justify-content:space-between;
+    margin:1.2rem 0 .4rem;padding:.85rem .15rem;border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);color:var(--tx);font-size:.8rem;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;cursor:pointer;list-style:none}
+  .lista-przycisk::-webkit-details-marker{display:none}
+  .lista-strzalka{width:1rem;height:1rem;flex:0 0 1rem;transition:transform .25s ease}
+  .lista-rozwijana[open] .lista-strzalka{transform:rotate(180deg)}
+  .karta-listy{max-width:none;text-align:left;margin-top:.4rem}
+  .poz{font-size:.95rem;line-height:1.6}
+  .postep{display:none}
+
+  /* Na telefonie opis usług pojawia się bez zdjęcia nad nim. */
+  #drzwi .kamera{display:flex;flex-direction:column}
+  .drzwi-scena{display:none}
+  .polowa{position:absolute;top:0;bottom:0;width:50%;clip-path:none!important}
+  .za-drzwiami{position:relative;inset:auto;order:2;transform:none!important;
+    padding:2.5rem 0 1rem;display:block}
+  .za-drzwiami .pad{width:min(1280px,88vw)}
+
+  /* kontakt bez wjazdu w ramce */
+  .kon{clip-path:none!important}
+  .kon-in{transform:none!important;opacity:1!important}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .kamera{position:static;height:auto;padding:3rem 0}
+  .scena{height:auto!important;margin-top:0!important}
+  .maska > span{transform:none!important}
+  .karta{position:relative;opacity:1!important;inset:auto;padding:2rem 0}
+  .kadr{width:100%!important;height:70svh!important;border-radius:12px!important}
+  .pas{flex-wrap:wrap}
+  .polowa{position:relative;width:100%;height:40svh;clip-path:none!important}
+  .sciana-tytul{opacity:1!important}
+  .sciana-tytul i .m > span{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="pasek">
+  <div class="bar-in">
+    <div class="menu-blok" id="menuBlok">
+      <div class="pigulka" id="menuPrzycisk" role="button" tabindex="0" aria-expanded="false">Menu</div>
+      <nav class="menu-poz">
+        <a href="#sciana" class="tylko-duze">Wyroby</a>
+        <a href="#galeria" class="tylko-male">Galeria</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="menu-tel tylko-male" href="tel:+48600677682">Zadzwoń — 600 677 682</a>
+      </nav>
+    </div>
+    <div class="logo-srodek">Tomasz Bronka</div>
+    <a class="pigulka pigulka--tel" href="tel:+48600677682"><i></i>600 677 682</a>
+  </div>
+</header>
+
+
+
+<!-- SCENA 1 — kadr pełnoekranowy kurczy się do karty 340×225 (numa cover) -->
+<section class="scena" id="otwarcie" style="height:calc(131vh + 100svh + 2280px)">
+  <div class="kamera">
+    <div class="kadr" id="kadr">
+      <img src="img/fa2040fb57.jpg" alt="Nagrobek granitowy — Kalisz" id="fotoOtw">
+      <div class="kadr-tresc" id="trescOtw">
+        <div class="pad">
+          <div class="meta"><span>Kalisz</span><span>zakład kamieniarski</span></div>
+          <h1 class="hero-t">
+            <span class="maska"><span>Nagrobki</span></span>
+            <!-- drugi wiersz wymienia się przy przewijaniu: nazwa firmy → czym się zajmuje
+                 (wymiana treści w masce — mechanizm numa) -->
+            <span class="maska maska--zmiana">
+              <span class="w1">Tomasz Bronka</span>
+              <span class="w2">z granitu</span>
+            </span>
+          </h1>
+          <p class="hero-sub maska"><span>Specjalizujemy się w produkcji nagrobków. Granit obrabiamy bezpośrednio u siebie.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENA 2 — ŚCIANA REALIZACJI: trzy pasy jadą w przeciwnych kierunkach (numa route) -->
+<!-- zachodzi na scenę otwierającą: pas rusza dokładnie wtedy, gdy kadr
+     skończył kurczyć się do karty 340×225 (numa: cover 0–2700, route 1035–4635) -->
+<section class="scena" id="sciana" style="height:calc(6500px + 100svh);margin-top:calc(-100svh - 2280px);z-index:3">
+  <div class="kamera">
+    <div class="pas" data-kier="1"></div>
+    <div class="pas" data-kier="-1"></div>
+    <div class="pas" data-kier="1"></div>
+    <div class="sciana-tytul" id="scianaTytul"><span class="tresc" id="scianaTrescNapisu"><b>Wyroby z kamienia</b><i id="dopisek"></i></span></div>
+  </div>
+</section>
+
+<!-- SCENA 3 — napis rozsuwa się nad nieruchomym obrazem, który potem wyjeżdża w górę -->
+<!-- zachodzi na ścianę: pełnoekranowy kadr wsuwa się z prawej, zanim kadry ściany
+     zdążą zniknąć — na numie w tym miejscu ekran wypełnia obraz następnej sceny -->
+<section class="scena" id="najazd" style="height:calc(3000px + 100svh);margin-top:calc(-3000px - 100svh);z-index:2">
+  <div class="kamera">
+    <div class="tlo"><img src="img/3543767a3c.jpg" alt="Prace kamieniarskie — Kalisz" id="fotoNajazd"></div>
+    <div class="napis">
+      <span class="wiersz" data-x="-1">Renowacje</span>
+      <span class="wiersz" data-x="1">i liternictwo</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCENA 4 — OFERTA: jedna kamera, treść wymieniana w punktach wyzwalania (numa) -->
+<section class="scena" id="oferta" style="height:710vh;margin-top:calc(-100svh - 675px)">
+  <div class="kamera">
+    <div id="karty"></div>
+    <div class="postep" id="postep"></div>
+  </div>
+</section>
+
+<!-- SCENA 5 — PRZEJŚCIE PRZEZ ROZSUWANY KADR (era arch-intro) -->
+<section class="scena" id="drzwi" style="height:300vh">
+  <div class="kamera">
+    <div class="za-drzwiami" id="zaDrzwiami">
+      <div class="pad" style="text-align:center">
+        <span class="eyebrow">Usługi kamieniarskie</span>
+        <p class="big" style="max-width:26ch;margin-inline:auto">
+          <span class="maska"><span>Podnosimy zapadnięte groby</span></span>
+          <span class="maska"><span>i wymieniamy pęknięte</span></span>
+          <span class="maska"><span>podkłady pod nagrobkami.</span></span>
+        </p>
+      </div>
+    </div>
+    <div class="drzwi-scena" id="drzwiScena">
+      <div class="polowa l"><img src="img/fa2040fb57.jpg" alt="Nagrobek z ciemnego granitu — Kalisz"></div>
+      <div class="polowa r"><img src="img/fa2040fb57.jpg" alt="Nagrobek z ciemnego granitu — Kalisz"></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT — wjeżdża w ramkę: clipPath inset(8% 22% 8% 22%) + opacity/scale (era) -->
+<!-- GALERIA — wersja mobilna: poziomy pas zdjęć tuż przed kontaktem.
+     Przewija się o JEDNO zdjęcie na kliknięcie (poprawka z wcześniejszej rozmowy),
+     pod spodem kreska postępu. Na dużym ekranie ukryta — tam rolę galerii gra ściana realizacji. -->
+<section id="galeria">
+  <div class="wrap gal-head">
+    <div><span class="eyebrow">Galeria</span>
+      <h2 class="gal-tyt">Tak wygląda nasza praca</h2></div>
+    <div class="gal-strzalki">
+      <button id="galP" type="button" aria-label="Poprzednie zdjęcie">&#8249;</button>
+      <button id="galN" type="button" aria-label="Następne zdjęcie">&#8250;</button>
+    </div>
+  </div>
+  <div class="gal" id="gal"></div>
+  <div class="wrap"><div class="gal-linia"><i id="galPostep"></i></div></div>
+</section>
+
+<section class="kon" id="kontakt">
+  <div class="wrap kon-in" id="konIn">
+    <span class="eyebrow">Kontakt</span>
+    <p class="big"><span class="maska"><span>Porozmawiajmy o nagrobku.</span></span></p>
+    <!-- adres i dane kontaktowe wprost ze strony firmy: nagrobki-kalisz.pl -->
+    <address class="kon-adres">
+      <span class="kon-firma">Zakład kamieniarski Tomasz Bronka</span>
+      ul. Łódzka 109<br>62-800 Kalisz
+    </address>
+    <div class="kon-row">
+      <a class="btn-line" href="tel:+48600677682">+48 600 677 682</a>
+      <a class="btn-line" href="mailto:tomekwrona2@wp.pl">tomekwrona2@wp.pl</a>
+      <a class="btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Zak%C5%82ad%20kamieniarski%20Tomasz%20Bronka%20ul.%20%C5%81%C3%B3dzka%20109%2C%2062-800%20Kalisz" target="_blank" rel="noopener noreferrer">Znajdź w Mapach Google</a>
+    </div>
+  </div>
+</section>
+
+<footer>Zakład kamieniarski Tomasz Bronka — ul. Łódzka 109, 62-800 Kalisz</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+/* treść oferty — w całości z oryginalnej strony firmy */
+var KAT=[
+ {t:"Nagrobki pojedyncze",p:"Nasz zakład jest w stanie wykonać nawet najbardziej skomplikowane zlecenia. Zależy nam na tym, aby nasza oferta spełniła wszystkie Państwa oczekiwania.",l:[]},
+ {t:"Nagrobki podwójne",p:"Podstawowa oferta nagrobków. Granit, który wykorzystujemy w produkcji, jest obrabiany bezpośrednio przez nas.",l:[]},
+ {t:"Nagrobki dziecięce",p:"Poza wykonywaniem grobów od podstaw zajmujemy się także wymianą uszkodzonych tablic i innych elementów nagrobka.",l:[]},
+ {t:"Sarkofagi",p:"Nowe elementy wykonujemy z takiego samego materiału, jak cały nagrobek.",l:[]},
+ {t:"Piwnice",p:"Wykonujemy wylewki betonowe pod nagrobki. Bezpiecznie i profesjonalnie podnosimy zapadnięte groby.",l:[]},
+ {t:"Liternictwo",p:"Proces nanoszenia znaków na kamień. Mogą to być litery piaskowane lub kute. Wykonujemy też dopiski osób zmarłych.",l:[]},
+ {t:"Galanteria",p:"Wazony, lampiony, ławki, patki na znicze. Wykonujemy także książki granitowe, serca i inne elementy, o które poprosi klient.",l:[]},
+ {t:"Granity",p:"Kamień, z którym pracujemy najczęściej. Nie jest to lista zamknięta — jeśli posiadają Państwo jakiś oryginalny i nietuzinkowy pomysł, podejmiemy się jego realizacji.",
+  l:["aurora","azul noche","balmoral","baltic green","biały piękny","brązowy królewski","impala","juparana","kashmir","labrador blue","multicolor green","multicolor red","olive green","orion","różowy","różowy srebrzysty","sahara gold"]}
+];
+
+/* zdjęcia na ścianę realizacji */
+/* PREMIUM (wskazane przez właściciela, licząc od lewej strony galerii):
+   1 → f20370800d.jpg, 2 → 6d616e8ce2.jpg, 5 → 277e18b871.jpg, 6 → cc69168082.jpg.
+   Idą na czoło każdego pasa, żeby były pierwsze w kadrze. */
+/* 13 kadrów 768×1024 — wszystkie zdjęcia firmy ze strony nagrobki-kalisz.pl */
+var FOTO=["3543767a3c.jpg","4f8baa6497.jpg","504561378e.jpg","6aa77e67d4.jpg","96f57cbf80.jpg",
+ "a84503cfef.jpg","b01e468d83.jpg","ca20e05f9e.jpg","e25ef9d320.jpg","e58f49c06d.jpg",
+ "fa2040fb57.jpg","fb0d527047.jpg","fd7ab1def6.jpg"];
+
+/* ——— ściana realizacji — układ przepisany z numa.uprock.pro (okno 1536×864) ———
+   Pomiar numy: trzy pasy kart 363×240, odstęp 15,5 px.
+     pas górny   (top 50)  — 5 kart
+     pas środkowy (top 300) — 3 karty, a pierwszym, skrajnie lewym kadrem pasa jest sam
+                              kadr przejęty z hero: karty pasa idą WYŁĄCZNIE na prawo od niego
+                              (na numie żadna karta pasa środkowego nie stoi na lewo od cover)
+     pas dolny   (top 550) — 5 kart
+   Moje karty 340×225, odstęp 15 → krok 355 (numa: 378,5). */
+var pasy=[].slice.call(document.querySelectorAll('#sciana .pas'));
+var GLOWY=["3543767a3c.jpg","4f8baa6497.jpg","96f57cbf80.jpg"];
+var ILE_KART=[5,3,5];
+pasy.forEach(function(pas,i){
+  for(var k=0;k<ILE_KART[i];k++){
+    /* Czoło pasa: zdjęcie premium, ale NIE takie, które gra już gdzie indziej —
+       6d616e8ce2 jest kadrem hero (stałby tuż obok siebie dwa razy), f20370800d wchodzi
+       w scenie „Realizacje … dobrane do Twojego wnętrza", cc69168082 to rozsuwane połowy. */
+    var f = (k===0) ? GLOWY[i] : FOTO[(i*5+k)%FOTO.length];
+    var d=document.createElement('div'); d.className='karta-foto';
+    d.innerHTML='<img src="img/'+f+'" alt="Realizacja — Kalisz" loading="lazy" width="180" height="240">'+
+                '<span>Realizacja — Kalisz</span>';
+    pas.appendChild(d);
+  }
+});
+
+/* ——— scena oferty ——— */
+var karty=document.getElementById('karty'), postep=document.getElementById('postep'), sekOferta=document.getElementById('oferta');
+KAT.forEach(function(k,i){
+  var el=document.createElement('div');
+  el.className='karta'+(i===0?' on':'');
+  var wiersze=Math.ceil(k.l.length/2);
+  el.innerHTML='<div class="karta-in">'+
+    '<div><span class="lab">Oferta</span>'+
+      '<h2 class="tyt"><span class="maska"><span>'+k.t+'</span></span></h2></div>'+
+    '<p class="opis maska"><span>'+k.p+'</span></p>'+
+    (k.l.length?('<details class="lista-rozwijana" open><summary class="lista-przycisk">Wzory granitu'+
+      '<svg class="lista-strzalka" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" '+
+      'fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'+
+      '</summary><span class="lista-label">Wzory granitu</span>'+
+      '<ul class="karta-listy" style="--rows:'+wiersze+'">'+
+      k.l.map(function(x){return '<li class="poz"><span>'+x+'</span></li>'}).join('')+'</ul></details>'):'<div></div>')+'</div>';
+  karty.appendChild(el);
+  var kropka=document.createElement('i'); if(i===0)kropka.className='on';
+  postep.appendChild(kropka);
+});
+/* Na telefonie lista granitów zaczyna zwinięta; na dużym ekranie jest zawsze widoczna. */
+var mediaLista=window.matchMedia('(max-width:760px)');
+function ustawWidocznoscListy(){
+  document.querySelectorAll('.lista-rozwijana').forEach(function(lista){lista.open=!mediaLista.matches});
+}
+ustawWidocznoscListy();
+mediaLista.addEventListener('change',ustawWidocznoscListy);
+
+/* druga linia napisu nad ścianą — słowa dopisują się przy przewijaniu */
+var DOPISEK='szeroka oferta'.split(' ');
+var dopisek=document.getElementById('dopisek');
+DOPISEK.forEach(function(w){
+  var m=document.createElement('span'); m.className='m';
+  m.innerHTML='<span>'+w+'</span>';
+  dopisek.appendChild(m);
+});
+
+/* ——— pasek górny wg numa: pigułka „Menu", telefon po prawej,
+   chowanie przy przewijaniu w dół i powrót przy przewijaniu w górę ——— */
+/* Numa przy 390 px wyłącza kino przewijania (.cover{display:none}, zero kart w ruchu).
+   Ten sam próg co w CSS — poniżej 760 px strona jest zwykłym, statycznym dokumentem. */
+var MOBILE = window.matchMedia('(max-width:760px)').matches;
+
+/* ——— GALERIA (mobile): poziomy pas, strzałka przesuwa o JEDNO zdjęcie ——— */
+var gal=document.getElementById('gal');
+if(gal){
+  FOTO.forEach(function(f){
+    var fg=document.createElement('figure');
+    fg.innerHTML='<img src="img/'+f+'" alt="Realizacja — Kalisz" loading="lazy">';
+    gal.appendChild(fg);
+  });
+  var galP=document.getElementById('galP'), galN=document.getElementById('galN'),
+      galPostep=document.getElementById('galPostep');
+  function krokGalerii(){
+    var f=gal.querySelector('figure');
+    if(!f) return gal.clientWidth;
+    return f.getBoundingClientRect().width + (parseFloat(getComputedStyle(gal).columnGap)||0);
+  }
+  function przesunGalerie(kier){
+    gal.scrollBy({left:kier*krokGalerii(), behavior:'smooth'});
+  }
+  galN.addEventListener('click',function(){przesunGalerie(1)});
+  galP.addEventListener('click',function(){przesunGalerie(-1)});
+  function odswiezPostepGalerii(){
+    var max=gal.scrollWidth-gal.clientWidth;
+    var szer=gal.scrollWidth ? gal.clientWidth/gal.scrollWidth*100 : 100;
+    galPostep.style.width=szer+'%';
+    galPostep.style.left=(max>0 ? gal.scrollLeft/max*(100-szer) : 0)+'%';
+    galP.disabled = gal.scrollLeft<4;
+    galN.disabled = gal.scrollLeft>max-4;
+  }
+  gal.addEventListener('scroll',odswiezPostepGalerii,{passive:true});
+  addEventListener('resize',odswiezPostepGalerii);
+  odswiezPostepGalerii();
+}
+
+var pasek=document.getElementById('pasek');
+var menuBlok=document.getElementById('menuBlok');
+var menuPrzycisk=document.getElementById('menuPrzycisk');
+function przelaczMenu(){
+  var otw=!menuBlok.classList.contains('otwarte');
+  menuBlok.classList.toggle('otwarte',otw);
+  menuPrzycisk.setAttribute('aria-expanded',otw?'true':'false');
+  /* numa na telefonie zamienia pigułkę „Menu" na „Close ✕" i blokuje przewijanie strony
+     pod rozłożonym panelem */
+  if(MOBILE){
+    menuPrzycisk.textContent = otw ? 'Zamknij ✕' : 'Menu';
+    document.body.classList.toggle('menu-otwarte',otw);
+  }
+}
+/* klik w pozycję zamyka panel */
+document.querySelectorAll('.menu-poz a').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(menuBlok.classList.contains('otwarte')) przelaczMenu();
+  });
+});
+menuPrzycisk.addEventListener('click',przelaczMenu);
+menuPrzycisk.addEventListener('keydown',function(e){
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();przelaczMenu()}});
+[].forEach.call(menuBlok.querySelectorAll('a'),function(a){
+  a.addEventListener('click',function(){menuBlok.classList.remove('otwarte')})});
+addEventListener('keydown',function(e){
+  if(e.key==='Escape') menuBlok.classList.remove('otwarte')});
+
+var ostatniY=0;
+function pasekNaPrzewijanie(y){
+  /* menu i telefon mają być zawsze pod ręką — na każdym ekranie */
+  pasek.classList.remove('schowany'); ostatniY=y; return;
+  if(y<90){ pasek.classList.remove('schowany'); }
+  else if(y>ostatniY+4){ pasek.classList.add('schowany'); menuBlok.classList.remove('otwarte'); }
+  else if(y<ostatniY-4){ pasek.classList.remove('schowany'); }
+  ostatniY=y;
+}
+
+/* ===================== RUCH — wyłącznie zmierzone mechanizmy ===================== */
+if(!MOBILE && window.gsap && window.ScrollTrigger){
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Lenis — płynne przewijanie (numa, era) */
+  if(window.Lenis){
+    var lenis=new Lenis({duration:1.2,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},smoothWheel:true});
+    lenis.on('scroll',function(e){ScrollTrigger.update();pasekNaPrzewijanie(e.scroll||window.scrollY)});
+    gsap.ticker.add(function(t){lenis.raf(t*1000)});
+    gsap.ticker.lagSmoothing(0);
+    window.__lenis=lenis;
+  }
+
+  /* wejście wierszy z masek (numa: overflow:hidden o wysokości wiersza) */
+  function odslon(cel,opoznienie){
+    return gsap.to(cel.querySelectorAll('.maska > span:not(.w1):not(.w2)'),
+      {y:'0%',duration:1.05,ease:'power3.out',stagger:0.08,delay:opoznienie||0});
+  }
+  odslon(document.getElementById('trescOtw'),0.15);
+
+  /* —— SCENA 1: kadr kurczy się do karty 340×225, zaokrąglenie 35 → 985 (numa cover) ——
+     kolejność: najpierw wymiana wiersza, wygaszenie treści, potem wczesne kurczenie kadru */
+  gsap.timeline({scrollTrigger:{trigger:'#otwarcie',start:'top top',
+    end:function(){return '+='+(3*window.innerHeight)},scrub:0.5}})
+    /* wymiana drugiego wiersza: „New York" wyjeżdża w górę, „na wymiar" wjeżdża od dołu */
+    .fromTo('.hero-t .w1',{y:'0%'},{y:'-106%',ease:'power2.inOut',duration:0.08},0.03)
+    .fromTo('.hero-t .w2',{y:'106%'},{y:'0%',ease:'power2.inOut',duration:0.08},0.03)
+    .to('#trescOtw',{opacity:0,y:-40,ease:'none',duration:0.08},0.13)
+    .to('#kadr',{width:180,height:240,borderRadius:985,ease:'power1.inOut',duration:0.18},0.17)
+    .to('#fotoOtw',{scale:1.2,ease:'none',duration:0.18},0.17)
+    /* pauza: kadr stoi sam wycentrowany na ekranie jako zaokrąglony kafelek, zanim wjadą zdjęcia */
+    .to({},{duration:0.65});
+
+  /* ——— RUCH ŚCIANY — przepisany z numa.uprock.pro ———
+     Pomiar ustalony: po każdym skoku 450 ms na dojechanie scrubu (próbkowanie „w biegu"
+     mierzy opóźnienie scrubu, nie prawo strony — na tym raz już się przejechałem).
+     Okno 1536×864, mierzona LEWA KRAWĘDŹ pierwszej karty pasa i kadru cover:
+
+       numa    cover      pas górny/dolny   pas środkowy   obraz na ekranie
+        900   219/996        −1903             1531        kadr się kurczy
+       1000   383/602        −1903             1531        SAM KADR — 0 px karty w oknie
+       1100   383            −1903             1531        SAM KADR
+       1200   383            −1880             1508        pasy dopiero ruszają
+       1300   383            −1776             1404
+       1400   383            −1589             1218        karty nadjeżdżają z boków
+       1500   383            −1422             1052
+       1600   383            −1341              971
+       1700   378            −1326              958        DOJECHAŁY — krótki postój
+       2400  −461             −69               119        przejazd poprzeczny
+       3100  −1133            948              −563        kadr staje
+       3500  −1133           1891             −1506        ekran pusty
+
+     Fazy i prawa ruchu odczytane z tych liczb:
+       postój   … →1100   kadr sam, pasy poza oknem (pas zewn. prawą krawędzią 26 px za
+                          brzegiem okna → 0 px widać; pas środkowy pokazuje 5 px karty)
+       nadjazd  1100→1700  577 px, pasy LUSTRZANIE (co do piksela), kadr stoi
+       przejazd 1700→3100  pasy zewnętrzne 1,50× szybciej niż środkowy;
+                           kadr jedzie z pasem środkowym co do piksela (Δ −1504 = −1504)
+       wyjazd   3100→3500  znów lustrzanie, kadr już stoi
+     Przyrosty co 100 px przewijania (PROFIL_*) przepisane wprost z pomiaru — krzywej nie
+     zgaduję easingiem po nazwie. */
+
+  /* Pasy ustawiamy w pikselach względem faktycznej pozycji skurczonego kadru —
+     jednostka svh potrafi różnić się od wysokości okna i psuła równanie o kilka pikseli. */
+  function ustawPasy(){
+    var goraKarty=(window.innerHeight-240)/2;         /* kadr kończy dokładnie tutaj */
+    pasy.forEach(function(pas,i){ pas.style.top=(goraKarty+(i-1)*255)+'px'; });
+  }
+  ustawPasy();
+  addEventListener('resize',function(){ustawPasy();ScrollTrigger.refresh()});
+
+  /* KOTWICE — stan „poza ekranem" liczony od krawędzi okna, a nie przez przeskalowanie
+     współrzędnej numy: moja karta jest węższa, więc ten sam mnożnik wpuściłby kafelek
+     na 102 px do środka, choć numa pokazuje 5 px. */
+  var KROK=195;                                  /* karta 180 + odstęp 15 */
+  var OKNO=document.documentElement.clientWidth;
+  var KADR_L=Math.round((OKNO-180)/2);           /* lewa krawędź skurczonego kadru */
+  var SZER_ZEW=5*KROK-15;                        /* 960 — szerokość pasa 5-kartowego */
+  var START_ZEW=-(SZER_ZEW+26);                  /* numa: prawa krawędź 26 px za oknem */
+  var START_SR=window.innerWidth-5;              /* numa: karta stoi dokładnie tam, gdzie
+                                                    u niej — 5 px za szerokością okna, czyli
+                                                    pod paskiem przewijania: widać 0 px
+                                                    (sprawdzone zrzutem przy 1536×864) */
+  var SPOCZ_SR=KADR_L+180+15;                    /* karta przylega do kadru od prawej */
+  var NADJAZD=START_SR-SPOCZ_SR;                 /* droga nadjazdu, lustrzana dla pasów zewn. */
+  var SK=180/363;                                /* moja karta / karta numy */
+  var PRZEJAZD_SR=Math.round(1504*SK);           /* numa: cover i pas środkowy −1504 px */
+  var PRZEJAZD_ZEW=Math.round(PRZEJAZD_SR*1.50); /* numa: pasy zewnętrzne 1,50× */
+  /* Wyjazd: New York kotwiczy stan początkowy do krawędzi okna (pas zewn. 26 px za
+     brzegiem, środkowy 5 px). Przy karcie 180 px pas jest o połowę krótszy, więc sama
+     droga numy (943×SK) nie zdejmuje go z ekranu — zostawało 5 kafli. Koniec kotwiczę
+     więc tą samą miarą, co początek: lustrzanie po drugiej stronie okna. */
+  var SZER_SR=3*KROK-15;                         /* szerokość pasa 3-kartowego */
+  var WYJAZD=(OKNO+26)-(START_ZEW+NADJAZD+PRZEJAZD_ZEW);      /* pas zewnętrzny */
+  var WYJAZD_SR=(START_SR-NADJAZD-PRZEJAZD_SR)+(SZER_SR+5);   /* pas środkowy */
+
+  /* przyrosty z pomiaru numy, co 100 px przewijania */
+  var PROFIL_NADJAZD =[23,104,187,167,81,15];
+  var PROFIL_PRZEJAZD=[47,91,137,180,225,270,307,279,233,187,145,98,54,21];
+  var PROFIL_WYJAZD  =[175,384,303,81];
+  /* długości faz w przewijaniu: tempo numy (px drogi na px przewijania) utrzymane */
+  var SPAN_NADJAZD=600, SPAN_PRZEJAZD=1300, SPAN_WYJAZD=380;
+  var SPAN_SCIANA=SPAN_NADJAZD+SPAN_PRZEJAZD+SPAN_WYJAZD;
+
+  function dolozFaze(tl,cel,profil,droga,span){
+    var suma=profil.reduce(function(a,b){return a+b},0);
+    var krok=span/profil.length;
+    profil.forEach(function(w){
+      tl.to(cel,{x:'+='+(droga*w/suma),ease:'none',duration:krok});
+    });
+  }
+  /* jedna oś czasu na element — bez łańcucha osobnych fromTo, które przy starcie
+     ustawiały stan z ostatniego odcinka */
+  function budujTor(cel,startX,nad,prze,wyj){
+    gsap.set(cel,{x:startX});
+    var tl=gsap.timeline({scrollTrigger:{trigger:'#sciana',start:'top top',
+      end:'top top-='+SPAN_SCIANA,scrub:0.25}});
+    dolozFaze(tl,cel,PROFIL_NADJAZD ,nad ,SPAN_NADJAZD);
+    dolozFaze(tl,cel,PROFIL_PRZEJAZD,prze,SPAN_PRZEJAZD);
+    dolozFaze(tl,cel,PROFIL_WYJAZD  ,wyj ,SPAN_WYJAZD);
+    return tl;
+  }
+  pasy.forEach(function(pas){
+    var zew=(+pas.dataset.kier)>0;               /* 1 = pas zewnętrzny, -1 = środkowy */
+    budujTor(pas, zew?START_ZEW:START_SR,
+                  zew? NADJAZD:-NADJAZD,
+                  zew? PRZEJAZD_ZEW:-PRZEJAZD_SR,
+                  zew? WYJAZD:-WYJAZD_SR);
+    /* RÓŻNICA WOBEC NEW YORK — nazywam ją wprost:
+       w New York kafel 340×225 jest szerszy niż proporcja zdjęcia (4:3), więc `cover`
+       zostawia 13% zapasu w pionie i obraz ma po czym jeździć (yPercent -7 → 8).
+       Tutaj kafel ma proporcję zdjęcia (3:4, 180×240) — bo zdjęć firmy nie wolno przycinać —
+       więc zapasu nie ma i ta sama paralaksa odsłaniałaby czarne tło kafla.
+       Paralaksa wewnątrz kart jest więc wyłączona; cały ruch pasów zostaje z New York. */
+  });
+  /* Kadr z hero jedzie w osi środkowego pasa również przy wyjeździe,
+     aby opuścić ekran razem z sąsiednimi kartami. */
+  budujTor('#kadr',0,0,-PRZEJAZD_SR,-WYJAZD_SR);
+  /* Tytuł ściany realizacji:
+     1. Wchodzi w momencie ze zrzutu użytkownika (Zrzut ekranu 2026-09-17 162454): ściana się
+        opróżnia, kafelki zostały już tylko przy krawędziach (górny/dolny pas — karta przy prawej
+        krawędzi, środkowy — karta przy lewej), środek ekranu jest wolny. To u mnie d≈2000,
+        czyli koniec przejazdu poprzecznego, a nie dopiero puste tło po nim
+     2. Pojawia się dopiero na koniec tego kafelka na czystym jasnym tle, powiększa się do scale: 2.35
+     3. Dopisek „dobrane do Twojego wnętrza" wysuwa się z masek
+     4. Podczas przewijania ciemny kadr montażu nasuwa się z prawej strony
+     5. Tekst automatycznie i płynnie zmienia kolor z czarnego na biały literka po literce w rytmie nasuwania się ciemnego kadru (i vice versa przy powrocie)
+     6. Trwa na ciemnym kadrze w bieli przez chwilę, po czym zanika w miejscu (opacity: 1 -> 0, y: 0) bez ruchu w górę!
+  */
+  var trescNapisu=document.getElementById('scianaTrescNapisu');
+  gsap.set(trescNapisu,{scale:1, transformOrigin:"50% 50%"});
+  gsap.set('#scianaTytul',{opacity:0,x:0,y:0});
+
+  /* splitObj.val = ile procent szerokości zdjęcia montażu jest jeszcze ODCIĘTE z lewej,
+     czyli dokładnie ta sama liczba, którą dostaje clipPath kadru. */
+  var splitObj = { val: 100 };
+  var tloNajazdu = document.querySelector('#najazd .tlo');
+  var literyCiete = [trescNapisu.querySelector('b'), document.getElementById('dopisek')];
+  /* Każdy wiersz dostaje SWÓJ procent: gdzie krawędź zdjęcia wypada w jego własnym pudełku.
+     Dzięki temu cięcie trafia w krawędź także wtedy, gdy napis jest w połowie na jasnym tle,
+     a w połowie na ciemnym zdjęciu, i niezależnie od tego, jak bardzo jest powiększony. */
+  function tnijLitery(){
+    var r = tloNajazdu.getBoundingClientRect();
+    var krawedz = r.left + r.width * (splitObj.val/100);
+    literyCiete.forEach(function(el){
+      var e = el.getBoundingClientRect();
+      var pr = e.width ? (krawedz - e.left) / e.width * 100 : 100;
+      el.style.setProperty('--ciecie', Math.max(0,Math.min(100,pr)) + '%');
+    });
+  }
+  gsap.ticker.add(tnijLitery);
+  tnijLitery();
+
+  /* 1. Wejście napisu: dopiero na koniec kafelka 74adc7a8d1.jpg (po top-=2600), nie najeżdżając na niego */
+  /* Docelowe powiększenie liczone kotwicą, nie mnożnikiem: w New York napis po
+     powiększeniu zajmuje 70,6% szerokości okna (pomiar przy 1265 px: 894 px, marginesy
+     po 186 px). „Wyroby z kamienia" jest dłuższe niż „Realizacje", więc ten sam mnożnik
+     2,35 wypycha napis 97 px poza każdą krawędź. Skalę biorę więc z tego samego udziału okna. */
+  function skalaNapisu(){
+    var w=trescNapisu.getBoundingClientRect().width/(gsap.getProperty(trescNapisu,'scale')||1);
+    return w ? Math.min(2.35, 0.706*document.documentElement.clientWidth/w) : 2.35;
+  }
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:'#sciana',
+      start:'top top-=2000',      /* moment ze zrzutu: karty tylko przy krawędziach */
+      end:'top top-=2800',
+      scrub:0.3,
+      invalidateOnRefresh:true
+    }
+  })
+  .fromTo('#scianaTytul',{opacity:0},{opacity:1,duration:0.18,ease:'power1.out'},0)
+  .fromTo(trescNapisu,{scale:1},{scale:skalaNapisu,ease:'power1.inOut',duration:0.82},0.18);
+
+  /* 2. Słowa dopisku wysuwają się z masek od dołu */
+  gsap.fromTo('#dopisek .m > span',{y:'106%'},{y:'0%',ease:'none',stagger:0.25,
+    scrollTrigger:{trigger:'#sciana',start:'top top-=2200',end:'top top-=2800',scrub:0.4}});
+
+  /* 3. Nasuwanie się ciemnego kadru montażu z prawej strony
+        i jednoczesna płynna zmiana barwy liter z czarnego na biały (i vice versa przy powrocie) */
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:'#sciana',
+      start:'top top-=3600',
+      end:'top top-=4200',
+      scrub:0.3
+    }
+  })
+  .fromTo('#najazd .tlo',
+    {clipPath:'inset(0% 0% 0% 100%)'},
+    {clipPath:'inset(0% 0% 0% 0%)',ease:'none',duration:1},0)
+  .fromTo(splitObj,
+    {val:100},
+    {val:0,ease:'none',duration:1,onUpdate:tnijLitery},0);
+
+  /* 4. Trwanie w bieli na ciemnym kadrze, a następnie wygaszenie w miejscu (y: 0, bez ruchu w górę!) */
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:'#sciana',
+      start:'top top-=4200',
+      end:'top top-=4650',
+      scrub:0.3
+    }
+  })
+  .to({},{duration:0.60})
+  .to('#scianaTytul',{opacity:0,ease:'power1.in',duration:0.40});
+
+  /* 5. Napis o montażu wchodzi płynnie na miejsce poprzedniego napisu na ciemnym kadrze */
+  gsap.fromTo('.napis',{opacity:0},{
+    opacity:1,ease:'power1.out',
+    scrollTrigger:{trigger:'#sciana',start:'top top-=4650',end:'top top-=4950',scrub:0.3}
+  });
+
+  /* 6. SCENA 3: napis rozsuwa się przy zdjęciu w stałym rozmiarze;
+     dopiero po jego zniknięciu obraz wyjeżdża w górę i odsłania ofertę. */
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:'#sciana',
+      start:'top top-=5000',
+      end:'top top-=6500',
+      scrub:true
+    }
+  })
+  /* Faza 1: sam tekst rozsuwa się, zdjęcie zachowuje stały rozmiar */
+  .fromTo('.wiersz[data-x="-1"]',{xPercent:0},{xPercent:-48,ease:'none',duration:0.48},0)
+  .fromTo('.wiersz[data-x="1"]',{xPercent:0},{xPercent:48,ease:'none',duration:0.48},0)
+  .to('.napis',{opacity:0,duration:0.15,ease:'power1.in'},0.38)
+  /* Faza 2: cały obraz wyjeżdża w górę */
+  .to('#najazd .tlo',{yPercent:-100,ease:'power2.inOut',duration:0.45},0.55);
+
+  /* —— SCENA 4: wymiana treści w jednej kamerze, bez powtarzania animacji (numa) —— */
+  var kartyEl=[].slice.call(karty.children), kropki=[].slice.call(postep.children), akt=-1;
+  function pokaz(n){
+    if(n===akt) return;
+    akt=n;
+    kartyEl.forEach(function(el,i){
+      var wchodzi=(i===n);
+      gsap.to(el,{opacity:wchodzi?1:0,duration:0.5,ease:'power2.out',overwrite:true});
+      el.classList.toggle('on',wchodzi);
+      if(wchodzi){
+        gsap.fromTo(el.querySelectorAll('.maska > span'),{y:'106%'},
+          {y:'0%',duration:0.8,ease:'power3.out',overwrite:true});
+        /* pozycje wjeżdżają wiersz po wierszu z masek — mechanizm numa */
+        gsap.fromTo(el.querySelectorAll('.poz > span'),{y:'106%'},
+          {y:'0%',duration:0.7,ease:'power3.out',stagger:0.05,overwrite:true});
+      }else{
+        gsap.set(el.querySelectorAll('.poz > span'),{y:'106%'});
+      }
+    });
+    kropki.forEach(function(k,i){k.className=i<=n?'on':''});
+
+  }
+  ScrollTrigger.create({trigger:sekOferta,start:'top top-=675',end:'bottom bottom',
+    onUpdate:function(self){pokaz(Math.min(KAT.length-1,Math.floor(self.progress*KAT.length)))}});
+  pokaz(0);
+
+
+  /* —— SCENA 5: PRZEJŚCIE PRZEZ ROZSUWANY KADR (era arch-intro) ——
+     połówki rozjeżdżają się przez clipPath, kadr skaluje się 1 → 1,84 ease InOut,
+     a scena za nim dojeżdża do skali 1 */
+  gsap.timeline({scrollTrigger:{trigger:'#drzwi',start:'top top',end:'bottom bottom',scrub:true}})
+    .fromTo('.polowa.l',{clipPath:'inset(0% 0% 0% 0%)'},{clipPath:'inset(0% 100% 0% 0%)',ease:'none',duration:1},0)
+    .fromTo('.polowa.r',{clipPath:'inset(0% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 100%)',ease:'none',duration:1},0)
+    .fromTo('#drzwiScena',{scale:1},{scale:1.84,ease:'power2.inOut',duration:1},0)
+    .fromTo('#zaDrzwiami',{scale:0.82},{scale:1,ease:'power2.inOut',duration:0.7},0.15);
+  ScrollTrigger.create({trigger:'#drzwi',start:'top 30%',once:true,
+    onEnter:function(){odslon(document.getElementById('zaDrzwiami'),0.1)}});
+
+  /* —— KONTAKT: clipPath inset(8% 22% 8% 22%) → pełny kadr + opacity/scale (era stopka) —— */
+  gsap.fromTo('#kontakt',{clipPath:'inset(8% 22% 8% 22%)'},{clipPath:'inset(0% 0% 0% 0%)',ease:'none',
+    scrollTrigger:{trigger:'#kontakt',start:'top bottom',end:'top 45%',scrub:0.5}});
+  gsap.fromTo('#konIn',{opacity:0.25,scale:0.94},{opacity:1,scale:1,ease:'none',
+    scrollTrigger:{trigger:'#kontakt',start:'top bottom',end:'top 45%',scrub:0.5}});
+  ScrollTrigger.create({trigger:'#kontakt',start:'top 70%',once:true,
+    onEnter:function(){odslon(document.getElementById('konIn'),0)}});
+
+  /* Jasność tła pod paskiem — pigułki zmieniają tło tak jak na numie
+     (rgba(255,255,255,.1) na ciemnym, rgba(0,0,0,.4) na jasnym). */
+  function jasne(w){return function(){document.body.classList.toggle('jasne-tlo',w)}}
+  document.body.classList.remove('jasne-tlo');                 /* start: ciemne zdjęcie hero */
+  ScrollTrigger.create({trigger:'#otwarcie',start:'top top-=760',
+    onEnter:jasne(true), onLeaveBack:jasne(false)});           /* kadr skurczony → kremowe tło */
+  ScrollTrigger.create({trigger:'#sciana',start:'top top-=4150',
+    onEnter:jasne(false), onLeaveBack:jasne(true)});           /* odsłonięty kadr montażu */
+  ScrollTrigger.create({trigger:'#sciana',start:'top top-=5825',
+    onEnter:jasne(true), onLeaveBack:jasne(false)});           /* oferta odsłania się spod kadru */
+  ScrollTrigger.create({trigger:'#drzwi',start:'top top',
+    onEnter:jasne(false), onLeaveBack:jasne(true)});           /* kadr rozsuwany */
+  ScrollTrigger.create({trigger:'#drzwi',start:'top top-=1300',
+    onEnter:jasne(true), onLeaveBack:jasne(false)});           /* za drzwiami kremowe tło */
+
+  addEventListener('load',function(){ScrollTrigger.refresh();setTimeout(function(){ScrollTrigger.refresh()},700)});
+  [].forEach.call(document.images,function(im){
+    if(!im.complete) im.addEventListener('load',function(){ScrollTrigger.refresh()},{once:true});
+  });
+}else{
+  /* wersja statyczna (telefon albo brak GSAP): nic się nie animuje, wszystko widoczne */
+  document.querySelectorAll('.maska > span, .poz > span, #dopisek .m > span')
+    .forEach(function(s){s.style.transform='none'});
+  [].forEach.call(karty.children,function(el){el.style.opacity=1;el.style.position='relative'});
+  var tytulSciany=document.getElementById('scianaTytul');
+  if(tytulSciany) tytulSciany.style.opacity=1;
+  document.body.classList.add('jasne-tlo');
+}
+</script>
+</body>
+</html>
