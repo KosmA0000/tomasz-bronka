@@ -256,12 +256,12 @@ footer{padding:2.2rem 0;border-top:1px solid var(--line);font-size:.66rem;letter
   padding-inline:5vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .gal::-webkit-scrollbar{display:none}
 .gal figure{margin:0;flex:0 0 78vw;scroll-snap-align:center;border-radius:18px;overflow:hidden;
-  aspect-ratio:4/3;background:var(--bg-dark)}
+  aspect-ratio:3/4;background:var(--bg-dark)}
 .gal figure img{width:100%;height:100%;object-fit:cover;display:block}
 /* Na dużym ekranie galeria w klasycznym stylu — pomiar z walbrzych-tapicer-premium:
    kafle w jednym rzędzie, odstęp 19,2 px, bez zaokrągleń, zdjęcie mieści się w całości.
    Kafel 285×380 to dokładnie 3:4 materiału firmy (768×1024), więc `contain` nic nie obcina
-   i nie zostawia czarnych pasów. Na telefonie zostaje układ z New York (78vw). */
+   i nie zostawia czarnych pasów. Na telefonie kafle mają proporcje zdjęć 3:4. */
 @media (min-width:761px){
   /* pas zaczyna się tam, gdzie nagłówek (ten sam margines co .wrap) */
   .gal{padding-inline:max(5%,calc((100% - min(1280px,90%))/2));scroll-padding-left:max(5%,calc((100% - min(1280px,90%))/2))}
