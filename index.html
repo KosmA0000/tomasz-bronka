@@ -140,10 +140,6 @@ body.jasne-tlo .logo-srodek{color:#261A0A}
 .karta-foto{position:relative;flex:0 0 180px;width:180px;height:240px;overflow:hidden;
   border-radius:12px;background:var(--bg-dark)}
 .karta-foto img{width:100%;height:100%;object-fit:cover;will-change:transform}
-.karta-foto span{position:absolute;left:12px;bottom:10px;z-index:2;color:#F4F1EA;
-  font-size:.62rem;letter-spacing:1px;text-transform:uppercase;opacity:.9}
-.karta-foto::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(10,9,8,0) 55%,rgba(10,9,8,.6) 100%)}
 .sciana-tytul{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:4;
   text-align:center;pointer-events:none;opacity:0;will-change:transform,opacity}
 .sciana-tytul .tresc{display:inline-block;transform-origin:50% 50%}
@@ -433,7 +429,7 @@ footer{padding:2.2rem 0;border-top:1px solid var(--line);font-size:.66rem;letter
 <section class="scena" id="otwarcie" style="height:calc(131vh + 100svh + 2280px)">
   <div class="kamera">
     <div class="kadr" id="kadr">
-      <img src="img/fa2040fb57.jpg" alt="Nagrobek granitowy — Kalisz" id="fotoOtw">
+      <img src="img/3543767a3c.jpg" alt="Nagrobek granitowy — Kalisz" id="fotoOtw">
       <div class="kadr-tresc" id="trescOtw">
         <div class="pad">
           <div class="meta"><span>Kalisz</span><span>zakład kamieniarski</span></div>
@@ -470,7 +466,7 @@ footer{padding:2.2rem 0;border-top:1px solid var(--line);font-size:.66rem;letter
      zdążą zniknąć — na numie w tym miejscu ekran wypełnia obraz następnej sceny -->
 <section class="scena" id="najazd" style="height:calc(3000px + 100svh);margin-top:calc(-3000px - 100svh);z-index:2">
   <div class="kamera">
-    <div class="tlo"><img src="img/3543767a3c.jpg" alt="Prace kamieniarskie — Kalisz" id="fotoNajazd"></div>
+    <div class="tlo"><img src="img/fa2040fb57.jpg" alt="Prace kamieniarskie — Kalisz" id="fotoNajazd"></div>
     <div class="napis">
       <span class="wiersz" data-x="-1">Renowacje</span>
       <span class="wiersz" data-x="1">i liternictwo</span>
@@ -586,8 +582,7 @@ pasy.forEach(function(pas,i){
        w scenie „Realizacje … dobrane do Twojego wnętrza", cc69168082 to rozsuwane połowy. */
     var f = (k===0) ? GLOWY[i] : FOTO[(i*5+k)%FOTO.length];
     var d=document.createElement('div'); d.className='karta-foto';
-    d.innerHTML='<img src="img/'+f+'" alt="Realizacja — Kalisz" loading="lazy" width="180" height="240">'+
-                '<span>Realizacja — Kalisz</span>';
+    d.innerHTML='<img src="img/'+f+'" alt="Nagrobek granitowy" loading="lazy" width="180" height="240">';
     pas.appendChild(d);
   }
 });
@@ -640,7 +635,7 @@ var gal=document.getElementById('gal');
 if(gal){
   FOTO.forEach(function(f){
     var fg=document.createElement('figure');
-    fg.innerHTML='<img src="img/'+f+'" alt="Realizacja — Kalisz" loading="lazy">';
+    fg.innerHTML='<img src="img/'+f+'" alt="Nagrobek granitowy" loading="lazy">';
     gal.appendChild(fg);
   });
   var galP=document.getElementById('galP'), galN=document.getElementById('galN'),
